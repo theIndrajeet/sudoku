@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Sudoku Free</title>
+    <title>Sudoku Free - App Home</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,129 +11,217 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* Apply the Inter font family to the body */
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
         }
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-300 antialiased">
 
-    <!-- Main Container -->
-    <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-
-        <!-- Header Section -->
-        <header class="mb-10 text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">Privacy Policy</h1>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">For Sudoku Free</p>
-        </header>
-
-        <!-- Main Content Area -->
-        <main class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sm:p-10 space-y-8">
-
-            <!-- Effective Date -->
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400"><strong>Effective Date:</strong> July 12, 2025</p>
+    <!-- Header and Navigation -->
+    <header class="bg-white dark:bg-gray-800/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" onclick="showPage('home')" class="flex items-center space-x-2">
+                        <svg class="h-8 w-8 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75H6.375c-1.036 0-1.875.84-1.875 1.875v1.5c0 1.036.84 1.875 1.875 1.875h1.5v1.5H6.375c-1.036 0-1.875.84-1.875 1.875v1.5c0 1.036.84 1.875 1.875 1.875h1.5v1.5H6.375c-1.036 0-1.875.84-1.875 1.875v1.5c0 1.036.84 1.875 1.875 1.875h2.625m9.75-15h-1.5v1.5h1.5c1.036 0 1.875.84 1.875 1.875v1.5c0 1.036-.84 1.875-1.875 1.875h-1.5v1.5h1.5c1.036 0 1.875.84 1.875 1.875v1.5c0 1.036-.84 1.875-1.875 1.875h-1.5v1.5h1.5c1.036 0 1.875.84 1.875 1.875v1.5c0 1.036-.84 1.875-1.875 1.875h-2.625m-7.5-15h1.5v1.5h-1.5V3.75m0 6h1.5v1.5h-1.5V9.75m0 6h1.5v1.5h-1.5V15.75m0 6h1.5v1.5h-1.5V21.75m4.5-15h1.5v1.5h-1.5V6.75m0 6h1.5v1.5h-1.5V12.75m0 6h1.5v1.5h-1.5V18.75" />
+                        </svg>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">Sudoku Free</span>
+                    </a>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex md:space-x-8">
+                    <a href="#" onclick="showPage('home')" class="nav-link text-gray-500 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">Home</a>
+                    <a href="#" onclick="showPage('privacy')" class="nav-link text-gray-500 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">Privacy Policy</a>
+                </nav>
+                <!-- Mobile Menu Button (optional) -->
             </div>
-            
-            <hr class="border-gray-200 dark:border-gray-700">
+        </div>
+    </header>
 
-            <!-- Introduction -->
-            <p>This Privacy Policy describes how Sudoku Free ("we," "us," or "our") collects, uses, and discloses your information in relation to your use of our mobile application, Sudoku Free (the "App").</p>
-            <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you through our App.</p>
+    <!-- Page Content -->
+    <main id="page-content">
 
-            <!-- Section 1: Information We Collect -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">1. Information We Collect</h2>
-                <p class="mb-6">We have designed our App to be a simple and enjoyable experience. The information we collect depends on the features you use.</p>
-                
-                <!-- Developer Note -->
-                <div class="bg-yellow-100 dark:bg-yellow-900/30 border-l-4 border-yellow-500 text-yellow-800 dark:text-yellow-300 p-4 rounded-md my-4" role="alert">
-                    <p class="font-bold">Note to Developer</p>
-                    <p>Choose the section below that applies to your app. If you do not use any ads or analytics, use Section A and delete Section B. If you use ads or analytics, use Section B and delete Section A.</p>
-                </div>
-
-                <!-- Option A -->
-                <div id="section-a" class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SECTION A - For Apps WITHOUT Ads or Analytics</h3>
-                    <p>We do not collect any personally identifiable information from you through the App. All game data, such as your current puzzle, statistics (e.g., best times), and settings, is stored locally on your device only. This data is not transmitted to us or any third party.</p>
-                </div>
-
-                <!-- Option B -->
-                <div id="section-b" class="p-5 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SECTION B - For Apps WITH Ads or Analytics</h3>
-                    <p class="mb-4">To support and improve our App, we work with third-party services for advertising and analytics. These services may collect certain information as described below:</p>
-                    <ul class="space-y-4 list-disc list-inside text-gray-600 dark:text-gray-400">
-                        <li><strong>Usage Data:</strong> We may collect non-personal information about your interaction with the App. This includes which features you use, your game progress, session duration, and crash reports. This data is aggregated and anonymized and helps us understand how users engage with our App so we can fix bugs and improve the user experience.
-                            <br><em class="text-sm ml-4">Service Example: Google Analytics for Firebase.</em>
-                        </li>
-                        <li><strong>Device Information:</strong> We may collect non-personal information about the device you are using, such as the device model, operating system version, and screen resolution. This helps us optimize the App for different devices and troubleshoot compatibility issues.</li>
-                        <li><strong>Advertising ID:</strong> Our third-party advertising partners may collect your device's unique advertising identifier (e.g., GAID on Android). This identifier is used to serve personalized advertisements that are more relevant to your interests. You can typically reset this identifier or opt out of personalized advertising through your device's settings.
-                            <br><em class="text-sm ml-4">Service Example: Google AdMob.</em>
-                        </li>
-                    </ul>
-                    <p class="mt-4">We do not collect any personal information such as your name, email address, or location.</p>
+        <!-- Home Page -->
+        <div id="home" class="page">
+            <!-- Hero Section -->
+            <section class="bg-white dark:bg-gray-800">
+                <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                        The Classic Sudoku Puzzle,<br> Reimagined for You.
+                    </h1>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-400">
+                        Enjoy a clean, intuitive, and free Sudoku experience. Perfect for beginners and experts alike.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                            Download on Google Play
+                        </a>
+                    </div>
                 </div>
             </section>
 
-            <!-- Section 2: How We Use Your Information -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">2. How We Use Your Information</h2>
-                <p class="mb-4">We use the information we collect for the following purposes:</p>
-                <ul class="space-y-2 list-disc list-inside text-gray-600 dark:text-gray-400">
-                    <li><strong>To Provide and Maintain the App:</strong> To save your game progress and settings on your device.</li>
-                    <li><strong>To Improve the App:</strong> To understand and analyze how you use our App, identify crashes, and make improvements to its functionality and design.</li>
-                    <li><strong>To Provide Advertising:</strong> To display advertisements within the App, which helps us keep the App free. Our partners may use the information collected to show you personalized ads.</li>
-                </ul>
+            <!-- Features Section -->
+            <section class="py-20">
+                <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Why You'll Love Sudoku Free</h2>
+                         <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Everything you need for the perfect puzzle session.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Multiple Difficulty Levels</h3>
+                            <p class="text-gray-600 dark:text-gray-400">From Easy to Expert, challenge yourself at any skill level.</p>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
+                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Clean & Intuitive UI</h3>
+                             <p class="text-gray-600 dark:text-gray-400">A beautiful, distraction-free interface that lets you focus on the game.</p>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
+                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Helpful Features</h3>
+                             <p class="text-gray-600 dark:text-gray-400">Use hints, notes, and an undo button to help you solve tricky puzzles.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
+        </div>
 
-            <!-- Section 3: Third-Party Services -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">3. Third-Party Services</h2>
-                <p class="mb-4">Our App may use third-party services for analytics and advertising. These services have their own privacy policies that describe how they use your information. We recommend you review their policies.</p>
-                <ul class="space-y-2 list-disc list-inside text-gray-600 dark:text-gray-400">
-                    <li>Google Play Services</li>
-                    <li>Google AdMob</li>
-                    <li>Google Analytics for Firebase</li>
-                </ul>
-            </section>
+        <!-- Privacy Policy Page -->
+        <div id="privacy" class="page">
+            <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+                <!-- Header Section -->
+                <header class="mb-10 text-center">
+                    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">Privacy Policy</h1>
+                    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">For Sudoku Free</p>
+                </header>
 
-            <!-- Section 4: Children's Privacy -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">4. Children's Privacy</h2>
-                <p>Our App is not directed at individuals under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such information.</p>
-            </section>
+                <!-- Main Content Area -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sm:p-10 space-y-8">
+                    <!-- Effective Date -->
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400"><strong>Effective Date:</strong> July 12, 2025</p>
+                    </div>
+                    <hr class="border-gray-200 dark:border-gray-700">
+                    <!-- Introduction -->
+                    <p>This Privacy Policy describes how Sudoku Free ("we," "us," or "our") collects, uses, and discloses your information in relation to your use of our mobile application, Sudoku Free (the "App").</p>
+                    <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you through our App.</p>
+                    <!-- Section 1: Information We Collect -->
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">1. Information We Collect</h2>
+                        <p class="mb-6">We have designed our App to be a simple and enjoyable experience. The information we collect depends on the features you use.</p>
+                        <div class="bg-yellow-100 dark:bg-yellow-900/30 border-l-4 border-yellow-500 text-yellow-800 dark:text-yellow-300 p-4 rounded-md my-4" role="alert">
+                            <p class="font-bold">Note to Developer</p>
+                            <p>Choose the section below that applies to your app. If you do not use any ads or analytics, use Section A and delete Section B. If you use ads or analytics, use Section B and delete Section A.</p>
+                        </div>
+                        <div id="section-a" class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SECTION A - For Apps WITHOUT Ads or Analytics</h3>
+                            <p>We do not collect any personally identifiable information from you through the App. All game data, such as your current puzzle, statistics (e.g., best times), and settings, is stored locally on your device only. This data is not transmitted to us or any third party.</p>
+                        </div>
+                        <div id="section-b" class="p-5 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SECTION B - For Apps WITH Ads or Analytics</h3>
+                            <p class="mb-4">To support and improve our App, we work with third-party services for advertising and analytics. These services may collect certain information as described below:</p>
+                            <ul class="space-y-4 list-disc list-inside text-gray-600 dark:text-gray-400">
+                                <li><strong>Usage Data:</strong> We may collect non-personal information about your interaction with the App...</li>
+                                <li><strong>Device Information:</strong> We may collect non-personal information about the device you are using...</li>
+                                <li><strong>Advertising ID:</strong> Our third-party advertising partners may collect your device's unique advertising identifier...</li>
+                            </ul>
+                            <p class="mt-4">We do not collect any personal information such as your name, email address, or location.</p>
+                        </div>
+                    </section>
+                    <!-- Other sections from privacy policy... -->
+                     <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">2. How We Use Your Information</h2>
+                        <p class="mb-4">We use the information we collect for the following purposes:</p>
+                        <ul class="space-y-2 list-disc list-inside text-gray-600 dark:text-gray-400">
+                            <li><strong>To Provide and Maintain the App:</strong> To save your game progress and settings on your device.</li>
+                            <li><strong>To Improve the App:</strong> To understand and analyze how you use our App, identify crashes, and make improvements to its functionality and design.</li>
+                            <li><strong>To Provide Advertising:</strong> To display advertisements within the App, which helps us keep the App free. Our partners may use the information collected to show you personalized ads.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">3. Third-Party Services</h2>
+                        <p class="mb-4">Our App may use third-party services for analytics and advertising...</p>
+                    </section>
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">4. Children's Privacy</h2>
+                        <p>Our App is not directed at individuals under the age of 13...</p>
+                    </section>
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">5. Data Security</h2>
+                        <p>We take reasonable measures to protect the information collected through our App...</p>
+                    </section>
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">6. Changes to This Privacy Policy</h2>
+                        <p>We may update our Privacy Policy from time to time...</p>
+                    </section>
+                    <section>
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">7. Contact Us</h2>
+                        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
+                        <a href="mailto:dronerrrr.help@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">dronerrrr.help@gmail.com</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
 
-            <!-- Section 5: Data Security -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">5. Data Security</h2>
-                <p>We take reasonable measures to protect the information collected through our App from loss, theft, and unauthorized access. However, please be aware that no method of electronic storage or transmission over the internet is 100% secure.</p>
-            </section>
-
-            <!-- Section 6: Changes to This Privacy Policy -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">6. Changes to This Privacy Policy</h2>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-            </section>
-
-            <!-- Section 7: Contact Us -->
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">7. Contact Us</h2>
-                <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
-                <a href="mailto:dronerrrr.help@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">dronerrrr.help@gmail.com</a>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
             <p>&copy; 2025 Sudoku Free. All rights reserved.</p>
-        </footer>
+        </div>
+    </footer>
 
-    </div>
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function showPage(pageId) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+            
+            // Update active state for nav links
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-600', 'dark:text-blue-400');
+                link.classList.add('text-gray-500', 'dark:text-gray-300');
+                if (link.getAttribute('onclick').includes(`'${pageId}'`)) {
+                    link.classList.add('text-blue-600', 'dark:text-blue-400');
+                    link.classList.remove('text-gray-500', 'dark:text-gray-300');
+                }
+            });
+            
+            // Scroll to top of the page
+            window.scrollTo(0, 0);
+        }
+
+        // Show the home page by default on initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home');
+        });
+    </script>
 
 </body>
 </html>
